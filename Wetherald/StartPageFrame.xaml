@@ -1,0 +1,83 @@
+﻿<Page x:Class="Wetherald.StartPageFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wetherald"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="StartPageFrame">
+
+
+
+    <Grid >
+        
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <StackPanel  Orientation="Vertical"  >
+            <Image Name="MainIcon" Height="400" Width="400" Source= "Images/MainEmblem.png" HorizontalAlignment="Center" >
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="2"/>
+                </Image.Effect>
+            </Image>
+            <Button  x:Name="MainButton" Height="50" Width="200" Background="White"  Cursor="Hand" Click="MainButton_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="29"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=MainButton}" Value="true">
+                                <Setter Property="Foreground" Value="#2DD700"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor,
+                                            AncestorType={x:Type Button}}, 
+                                            Path=IsPressed}" Value="true">
+                                <Setter Property="Foreground" Value="#FF9D9999"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor,
+                                            AncestorType={x:Type Button}}, 
+                                            Path=IsFocused}" Value="true">
+                                <Setter Property="Foreground" Value="White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <TextBlock x:Name="StartButtonTXT" Text="{DynamicResource StartButt}" FontSize="24" TextAlignment="Center" FontWeight="Bold">
+                    <TextBlock.Effect>
+                        <DropShadowEffect  BlurRadius="10" ShadowDepth="1" Color="#FF797979"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+            </Button>
+
+
+
+        </StackPanel>
+        <Button IsEnabled="True" Name="LangIco_Button" Click="LangIco_Button_Click" BorderThickness="2" BorderBrush="Black" Background="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="65 0 0 5" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/LangIcon.png" Stretch="Fill" Height="50" Width="50" />
+        </Button>
+        <Button Margin="5" IsEnabled="True" x:Name="testSpeavka"  Click="Spravka_Click" BorderThickness="2" BorderBrush="Black" Background="White"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/HelpButtonImage.png" Stretch="Fill" Height="50" Width="50"/>
+        </Button>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Wetherald.MainWindow"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        xmlns:local="clr-namespace:Wetherald"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000" Icon="Images/iconWeath.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow"   >
+    <Window.Resources>
+        <SolidColorBrush x:Key="LightGreyBrush" Color="#c0c0c0"/>
+        <SolidColorBrush x:Key="MidGreyBrush" Color="#808080"/>
+        <SolidColorBrush x:Key="DarkGreyBrush" Color="#404040"/>
+        <ResourceDictionary x:Key="LanguageResource" Source="Resources/Strings.en-US.xaml" />
+    </Window.Resources>
+    
+
+
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
+        <Frame.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FFFFFF" Offset="0.1"></GradientStop>
+                <GradientStop Color="#B5BBE8" Offset="0.8"></GradientStop>
+
+            </LinearGradientBrush>
+        </Frame.Background>
+    </Frame>
+   
+</Window>

@@ -1,0 +1,198 @@
+﻿<Page x:Class="Wetherald.ChangeTheCityPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wetherald"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="ChangeTheCityPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Images/MainEmblem.png" Grid.Column="0">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="2"/>
+            </Image.Effect>
+        </Image>
+
+        <Canvas Grid.Column="1">
+            <TextBlock Canvas.Top="150" Name="CityHelpText" Text="{DynamicResource CityHelpText}" FontSize="22" FontWeight="Bold"/>
+            <ComboBox x:Name="CitySelection" Cursor="Hand" SelectionChanged="CitySelection_SelectionChanged" Text="{DynamicResource CitySelection}" Canvas.Left="20" Canvas.Top="200" Width="300" IsEditable="True" StaysOpenOnEdit ="True">
+                <!-- Российские города -->
+                <TextBlock Name="Perm" Text="{DynamicResource Perm}"/>
+                <TextBlock Name="Moscow" Text="{DynamicResource Moscow}"/>
+                <TextBlock Name="PeterBurg" Text="{DynamicResource PeterBurg}"/>
+                <TextBlock Name="Novosibirsk" Text="{DynamicResource Novosibirsk}"/>
+                <TextBlock Name="Ekaterinburg" Text="{DynamicResource Ekaterinburg}"/>
+                <TextBlock Name="Kazan" Text="{DynamicResource Kazan}"/>
+                <TextBlock Name="Nizhny_Novgorod" Text="{DynamicResource Nizhny_Novgorod}"/>
+                <TextBlock Name="Samara" Text="{DynamicResource Samara}"/>
+                <TextBlock Name="Omsk" Text="{DynamicResource Omsk}"/>
+                <TextBlock Name="Rostov_on_Don" Text="{DynamicResource Rostov_on_Don}"/>
+                <TextBlock Name="Ufa" Text="{DynamicResource Ufa}"/>
+                <TextBlock Name="Krasnoyarsk" Text="{DynamicResource Krasnoyarsk}"/>
+                <TextBlock Name="Voronezh" Text="{DynamicResource Voronezh}"/>
+                <TextBlock Name="Volgograd" Text="{DynamicResource Volgograd}"/>
+                <TextBlock Name="Krasnodar" Text="{DynamicResource Krasnodar}"/>
+                <TextBlock Name="Saratov" Text="{DynamicResource Saratov}"/>
+                <TextBlock Name="Tyumen" Text="{DynamicResource Tyumen}"/>
+                <TextBlock Name="Irkutsk" Text="{DynamicResource Irkutsk}"/>
+                <TextBlock Name="Yaroslavl" Text="{DynamicResource Yaroslavl}"/>
+                <TextBlock Name="Vladivostok" Text="{DynamicResource Vladivostok}"/>
+                <TextBlock Name="Chelyabinsk" Text="{DynamicResource Chelyabinsk}"/>
+                <TextBlock Name="Tula" Text="{DynamicResource Tula}"/>
+                <TextBlock Name="Kaliningrad" Text="{DynamicResource Kaliningrad}"/>
+                <TextBlock Name="Astrakhan" Text="{DynamicResource Astrakhan}"/>
+                <TextBlock Name="Murmansk" Text="{DynamicResource Murmansk}"/>
+                <TextBlock Name="Pskov" Text="{DynamicResource Pskov}"/>
+                <TextBlock Name="Smolensk" Text="{DynamicResource Smolensk}"/>
+                <TextBlock Name="Tver" Text="{DynamicResource Tver}"/>
+                <TextBlock Name="Vladimir" Text="{DynamicResource Vladimir}"/>
+                <TextBlock Name="Tomsk" Text="{DynamicResource Tomsk}"/>
+                <TextBlock Name="Khabarovsk" Text="{DynamicResource Khabarovsk}"/>
+                <TextBlock Name="Kostroma" Text="{DynamicResource Kostroma}"/>
+                <TextBlock Name="Belgorod" Text="{DynamicResource Belgorod}"/>
+                <TextBlock Name="Penza" Text="{DynamicResource Penza}"/>
+                <TextBlock Name="Ryazan" Text="{DynamicResource Ryazan}"/>
+                <TextBlock Name="Ulyanovsk" Text="{DynamicResource Ulyanovsk}"/>
+                <TextBlock Name="Arkhangelsk" Text="{DynamicResource Arkhangelsk}"/>
+                <TextBlock Name="Chita" Text="{DynamicResource Chita}"/>
+                <TextBlock Name="Yakutsk" Text="{DynamicResource Yakutsk}"/>
+
+                <!-- Глобальные города -->
+                <TextBlock Name="Dubai" Text="{DynamicResource Dubai}"/>
+                <TextBlock Name="New_York" Text="{DynamicResource New_York}"/>
+                <TextBlock Name="Los_Angeles" Text="{DynamicResource Los_Angeles}"/>
+                <TextBlock Name="London" Text="{DynamicResource London}"/>
+                <TextBlock Name="Tokyo" Text="{DynamicResource Tokyo}"/>
+                <TextBlock Name="Berlin" Text="{DynamicResource Berlin}"/>
+                <TextBlock Name="Madrid" Text="{DynamicResource Madrid}"/>
+                <TextBlock Name="Rome" Text="{DynamicResource Rome}"/>
+                <TextBlock Name="Beijing" Text="{DynamicResource Beijing}"/>
+                <TextBlock Name="Sydney" Text="{DynamicResource Sydney}"/>
+                <TextBlock Name="Toronto" Text="{DynamicResource Toronto}"/>
+                <TextBlock Name="São_Paulo" Text="{DynamicResource São_Paulo}"/>
+                <TextBlock Name="Mexico_City" Text="{DynamicResource Mexico_City}"/>
+                <TextBlock Name="Seoul" Text="{DynamicResource Seoul}"/>
+                <TextBlock Name="Bangkok" Text="{DynamicResource Bangkok}"/>
+                <TextBlock Name="Istanbul" Text="{DynamicResource Istanbul}"/>
+                <TextBlock Name="Mumbai" Text="{DynamicResource Mumbai}"/>
+                <TextBlock Name="Buenos_Aires" Text="{DynamicResource Buenos_Aires}"/>
+                <TextBlock Name="Cairo" Text="{DynamicResource Cairo}"/>
+                <TextBlock Name="Cape_Town" Text="{DynamicResource Cape_Town}"/>
+                <TextBlock Name="Jakarta" Text="{DynamicResource Jakarta}"/>
+                <TextBlock Name="Lagos" Text="{DynamicResource Lagos}"/>
+                <TextBlock Name="Nairobi" Text="{DynamicResource Nairobi}"/>
+                <TextBlock Name="Hong_Kong" Text="{DynamicResource Hong_Kong}"/>
+                <TextBlock Name="Singapore" Text="{DynamicResource Singapore}"/>
+                <TextBlock Name="Rio_de_Janeiro" Text="{DynamicResource Rio_de_Janeiro}"/>
+                <TextBlock Name="Lima" Text="{DynamicResource Lima}"/>
+                <TextBlock Name="Shanghai" Text="{DynamicResource Shanghai}"/>
+                <TextBlock Name="Manila" Text="{DynamicResource Manila}"/>
+                <TextBlock Name="San_Francisco" Text="{DynamicResource San_Francisco}"/>
+                <TextBlock Name="Chicago" Text="{DynamicResource Chicago}"/>
+                <TextBlock Name="Miami" Text="{DynamicResource Miami}"/>
+                <TextBlock Name="Boston" Text="{DynamicResource Boston}"/>
+                <TextBlock Name="Las_Vegas" Text="{DynamicResource Las_Vegas}"/>
+                <TextBlock Name="Paris" Text="{DynamicResource Paris}"/>
+                <TextBlock Name="Vienna" Text="{DynamicResource Vienna}"/>
+                <TextBlock Name="Amsterdam" Text="{DynamicResource Amsterdam}"/>
+                <TextBlock Name="Zurich" Text="{DynamicResource Zurich}"/>
+                <TextBlock Name="Brussels" Text="{DynamicResource Brussels}"/>
+                <TextBlock Name="Copenhagen" Text="{DynamicResource Copenhagen}"/>
+                <TextBlock Name="Stockholm" Text="{DynamicResource Stockholm}"/>
+                <TextBlock Name="Oslo" Text="{DynamicResource Oslo}"/>
+                <TextBlock Name="Athens" Text="{DynamicResource Athens}"/>
+                <TextBlock Name="Helsinki" Text="{DynamicResource Helsinki}"/>
+                <TextBlock Name="Prague" Text="{DynamicResource Prague}"/>
+                <TextBlock Name="Budapest" Text="{DynamicResource Budapest}"/>
+                <TextBlock Name="Warsaw" Text="{DynamicResource Warsaw}"/>
+                <TextBlock Name="Lisbon" Text="{DynamicResource Lisbon}"/>
+
+            </ComboBox>
+
+        </Canvas>
+
+        <Button Grid.Column="1" Margin="20" VerticalAlignment="Bottom" Cursor="Hand" HorizontalAlignment="Right" Name="NextPageCityButton"  Click="NextPageCityButton_Click" Canvas.Top="220" Canvas.Right="0" BorderBrush="Black" Width="100" Height="30" BorderThickness="1" IsEnabled="False" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=NextPageCityButton}" Value="true">
+                            <Setter Property="Foreground" Value="#2DD700"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+              Mode=FindAncestor,
+              AncestorType={x:Type Button}}, 
+              Path=IsPressed}" Value="true">
+                            <Setter Property="Foreground" Value="#FF9D9999"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+              Mode=FindAncestor,
+              AncestorType={x:Type Button}}, 
+              Path=IsFocused}" Value="true">
+                            <Setter Property="Foreground" Value="White"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFFFFF" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#2DD700" Offset="0.8"></GradientStop>
+
+                </LinearGradientBrush>
+            </Button.Background>
+            <TextBlock Name="NextPageCityTXT" HorizontalAlignment="Center"  Text="{DynamicResource Next}" Width="100" Height="30" FontSize="18" TextAlignment="Center" FontWeight="Bold" />
+        </Button>
+
+        <Button Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 5 0 0" x:Name="Test" Cursor="Hand" Content="{DynamicResource Back}" Width="70" Height="20" Click="ReturnToMain" FontWeight="Bold" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFFFFF" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#FFF11A33" Offset="0.6"></GradientStop>
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button IsEnabled="True" Name="LangIco_Button" Click="LangIco_Button_Click" BorderThickness="2" BorderBrush="Black" Background="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="65 0 0 5" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/LangIcon.png" Stretch="Fill" Height="50" Width="50" />
+        </Button>
+        <Button Margin="5" IsEnabled="True" x:Name="testSpeavka1_Click"  Click="testSpeavka2_Click" BorderThickness="2" BorderBrush="Black" Background="White"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/HelpButtonImage.png" Stretch="Fill" Height="50" Width="50"/>
+        </Button>
+
+
+
+    </Grid>
+</Page>

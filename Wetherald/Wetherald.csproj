@@ -1,0 +1,117 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>False</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Properties\Lengs\Strings.en-US.resx" />
+    <EmbeddedResource Remove="Properties\Lengs\Strings.ru-RU.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="background.jpg" />
+    <None Remove="HelpButtonImage.jpg" />
+    <None Remove="HelpButtonImage.png" />
+    <None Remove="iconWeath.png" />
+    <None Remove="Images\background.jpg" />
+    <None Remove="Images\HelpButtonImage.png" />
+    <None Remove="Images\iconWeath.png" />
+    <None Remove="Images\LangIcon.png" />
+    <None Remove="Images\MainEmblem.png" />
+    <None Remove="Images\OffButtonImage.png" />
+    <None Remove="Images\SettingsButtonImage.png" />
+    <None Remove="Images\SlidePanelLeft.png" />
+    <None Remove="Images\SlidePanelRight.png" />
+    <None Remove="LangIcon.png" />
+    <None Remove="LanguageIcon.png" />
+    <None Remove="MainEmblem.png" />
+    <None Remove="OffButtonImage.png" />
+    <None Remove="SettingsButtonImage.png" />
+    <None Remove="SlidePanelLeft.png" />
+    <None Remove="SlidePanelRight.png" />
+    <None Remove="Weatherald.png" />
+    <None Remove="изображение_2024-04-27_223526571 1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HelpButtonImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\iconWeath.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LangIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MainEmblem.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OffButtonImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SettingsButtonImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SlidePanelLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SlidePanelRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Properties\Lengs\Strings.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </Resource>
+    <Resource Include="Properties\Lengs\Strings.ru-RU.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ScottPlot.WPF" Version="5.0.34" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="SpravSluzhba.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

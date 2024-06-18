@@ -1,0 +1,75 @@
+﻿<Page x:Class="Wetherald.ChangeTheLangPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wetherald"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="ChangeTheLangPage">
+
+    <Grid Cursor="">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpg"></ImageBrush>
+        </Grid.Background>
+
+
+        <Button IsEnabled="False" Name="LangIco_Button" BorderThickness="2" BorderBrush="Black" Background="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="65 0 0 5" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/LangIcon.png" Stretch="Fill" Height="50" Width="50" />
+        </Button>
+        <Button Margin="5" IsEnabled="True" x:Name="testSpeavka"  Click="Spravka_Click" BorderThickness="2" BorderBrush="Black" Background="White"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/HelpButtonImage.png" Stretch="Fill" Height="50" Width="50"/>
+        </Button>
+        
+
+        <Button Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Cursor="Hand" Margin="5 5 0 0" x:Name="Test" Content="{DynamicResource Back}" Width="70" Height="20" Click="ReturnMain_Click" FontWeight="Bold">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFFFFF" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#FFF11A33" Offset="0.6"></GradientStop>
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Canvas >
+            <TextBlock Canvas.Left="50" Canvas.Top="50" x:Name="LanguageSet" Text="{DynamicResource LanguageSet}" FontSize="36" FontWeight="Bold"/>
+            <ComboBox SelectionChanged="LanguageSelection_SelectionChanged"  BorderBrush="Black" BorderThickness="4" Canvas.Left="450" Canvas.Top="55" x:Name="LanguageSelection" Cursor="Hand"  Text="{DynamicResource LanguageSelection}"  Width="400" IsEditable="True" StaysOpenOnEdit ="True" FontSize="24" Background="#00000000">
+                <ComboBoxItem Tag="ru-RU">
+                    <TextBlock Name="Russian" Text="{DynamicResource Russian}"/>
+                </ComboBoxItem>
+
+                <ComboBoxItem Tag="en-US">
+                    <TextBlock Name="English" Text="{DynamicResource English}" />
+                </ComboBoxItem>
+                
+                <ComboBoxItem Tag="zh-CN">
+                    <TextBlock Name="China" Text="{DynamicResource China}"/>
+                </ComboBoxItem>
+
+                <ComboBoxItem Tag="es-ES">
+                    <TextBlock Name="Spanish" Text="{DynamicResource Spanish}"/>
+                </ComboBoxItem>
+               
+
+            </ComboBox>
+            
+        </Canvas>
+
+    </Grid>
+</Page>

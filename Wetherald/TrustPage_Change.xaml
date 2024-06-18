@@ -1,0 +1,153 @@
+﻿<Page x:Class="Wetherald.TrustPage_Change"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wetherald"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="TrustPage_Change">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Images/MainEmblem.png" Grid.Column="0">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="2"/>
+            </Image.Effect>
+        </Image>
+
+        <Canvas Grid.Column="1" VerticalAlignment="Center" Margin="0 0 50 0"  >
+            <TextBlock Canvas.Top="-180" x:Name="TrustQueation" Text="{DynamicResource TrustQueation}" FontSize="28" FontWeight="Bold" Margin="0 0 0 10"/>
+            <TextBlock Canvas.Top="-120" x:Name="TrustHelp1" Text="{DynamicResource TrustHelp1}" FontSize="16" FontWeight="Bold" Margin="0 0 0 0"/>
+            <TextBlock Canvas.Top="-100" x:Name="TrustHelp2" Text="{DynamicResource TrustHelp2}" FontSize="16" FontWeight="Bold" Margin="0 0 0 20"/>
+            <TextBlock Canvas.Top="-100" Canvas.Right="0" x:Name="TrustListText" Text="{DynamicResource TrustListText}" FontSize="16" FontWeight="Bold" Margin="0 0 0 20"/>
+
+            <TextBlock Canvas.Top="-60" Text="1." FontSize="18" TextAlignment="Center"/>
+            <Border Canvas.Top="-60" Canvas.Left="20" BorderBrush="Black"  Width="200" Height="30" BorderThickness="1">
+
+                <TextBlock   Text="{DynamicResource TrustDrag}" Width="200" x:Name="trustTarget1" AllowDrop="True" Drop="trustTarget1_Drop" TextAlignment="Center" FontSize="18"></TextBlock>
+            </Border>
+
+            <TextBlock Canvas.Top="-20" Text="2." FontSize="18" TextAlignment="Center"/>
+            <Border Canvas.Top="-20" Canvas.Left="20" BorderBrush="Black"  Width="200" Height="30" BorderThickness="1" >
+                <TextBlock  Text="{DynamicResource TrustDrag}" Width="200" x:Name="trustTarget2" AllowDrop="True" Drop="trustTarget2_Drop" FontSize="18" TextAlignment="Center"></TextBlock>
+            </Border>
+
+            <TextBlock Canvas.Top="20" Text="3." FontSize="18" TextAlignment="Center"/>
+            <Border Canvas.Top="20" Canvas.Left="20" BorderBrush="Black" Width="200" Height="30" BorderThickness="1" >
+                <TextBlock  Text="{DynamicResource TrustDrag}" Width="200" x:Name="trustTarget3" AllowDrop="True" Drop="trustTarget3_Drop" TextAlignment="Center" FontSize="18"></TextBlock>
+            </Border>
+
+
+
+            <ScrollViewer Canvas.Right="0" Canvas.Top="-60">
+                <StackPanel>
+                    <Label  Name="lbl1" Height="30"  Width="200" Cursor="Hand"
+        BorderBrush="Black" BorderThickness="1" 
+               MouseDown="WebClick1_MouseDown" FontSize="16" Content="Gismeteo"/>
+
+                    <Label  Name="lbl2"  Height="30" Width="200"  Cursor="Hand"
+        BorderBrush="Black" BorderThickness="1" 
+               MouseDown="WebClick2_MouseDown" FontSize="16" Content="Accuweather"/>
+
+                    <Label  Name="lbl3" Height="30"  Width="200" Cursor="Hand"
+        BorderBrush="Black" BorderThickness="1" 
+                MouseDown="WebClick3_MouseDown" FontSize="16" Content="YandexWeather"/>
+
+                    <Label  Name="lbl4" Height="30"  Width="200" Cursor="Hand"
+        BorderBrush="Black" BorderThickness="1" 
+        MouseDown="WebClick4_MouseDown" FontSize="16" Content="WorldWeather"/>
+
+
+
+                </StackPanel>
+            </ScrollViewer>
+
+
+
+        </Canvas>
+
+        <Button Grid.Column="1" Margin="20" VerticalAlignment="Bottom" Cursor="Hand" HorizontalAlignment="Right" Name="NextPageTrustButton"  Click="NextPage_Click" Canvas.Top="220" Canvas.Right="0" BorderBrush="Black" Width="100" Height="30" BorderThickness="1" IsEnabled="False" >
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFFFFF" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#2DD700" Offset="0.8"></GradientStop>
+
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=NextPageTrustButton}" Value="true">
+                            <Setter Property="Foreground" Value="#2DD700"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                              Mode=FindAncestor,
+                              AncestorType={x:Type Button}}, 
+                              Path=IsPressed}" Value="true">
+                            <Setter Property="Foreground" Value="#FF9D9999"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                              Mode=FindAncestor,
+                              AncestorType={x:Type Button}}, 
+                              Path=IsFocused}" Value="true">
+                            <Setter Property="Foreground" Value="White"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <TextBlock Name="NextPageTrust" HorizontalAlignment="Center"  Text="{DynamicResource Next}" Width="100" Height="30" FontSize="18" TextAlignment="Center" FontWeight="Bold" />
+        </Button>
+
+        <Button Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Cursor="Hand" Margin="5 5 0 0" x:Name="Test" Content="{DynamicResource Back}" Width="70" Height="20" Click="ReturnMain_Click" FontWeight="Bold">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFFFFF" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#FFF11A33" Offset="0.6"></GradientStop>
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button IsEnabled="True" Name="LangIco_Button" Click="LangIco_Button_Click" BorderThickness="2" BorderBrush="Black" Background="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="65 0 0 5" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/LangIcon.png" Stretch="Fill" Height="50" Width="50" />
+        </Button>
+        <Button Margin="5" IsEnabled="True" x:Name="testSpeavka"  Click="testSpeavka1_Click" BorderThickness="2" BorderBrush="Black" Background="White"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="Images/HelpButtonImage.png" Stretch="Fill" Height="50" Width="50"/>
+        </Button>
+
+        <TextBlock x:Name="TestText" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Тест">
+
+        </TextBlock>
+
+    </Grid>
+</Page>
