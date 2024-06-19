@@ -145,9 +145,7 @@
             <Image Source="Images/HelpButtonImage.png" Stretch="Fill" Height="50" Width="50"/>
         </Button>
 
-        <TextBlock x:Name="TestText" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Тест">
-
-        </TextBlock>
+        
 
     </Grid>
 </Page>

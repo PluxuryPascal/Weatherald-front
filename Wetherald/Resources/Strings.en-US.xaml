@@ -118,4 +118,25 @@
     <sys:String x:Key="Budapest">Budapest</sys:String>
     <sys:String x:Key="Warsaw">Warsaw</sys:String>
     <sys:String x:Key="Lisbon">Lisbon</sys:String>
+    <!-- Инф о погоде -->
+    <sys:String x:Key="N">N</sys:String>
+    <sys:String x:Key="S">S</sys:String>
+    <sys:String x:Key="E">E</sys:String>
+    <sys:String x:Key="W">W</sys:String>
+    <sys:String x:Key="NW">NW</sys:String>
+    <sys:String x:Key="NE">NE</sys:String>
+    <sys:String x:Key="SW">SW</sys:String>
+    <sys:String x:Key="SE">SE</sys:String>
+    <sys:String x:Key="NNW">NNW</sys:String>
+    <sys:String x:Key="NNE">NNE</sys:String>
+    <sys:String x:Key="SSW">SSW</sys:String>
+    <sys:String x:Key="SSE">SSE</sys:String>
+    <sys:String x:Key="Today">Weather today:</sys:String>
+    <sys:String x:Key="Tomorrow">Weather tomorrow:</sys:String>
+    <sys:String x:Key="Temp">Temperature</sys:String>
+    <sys:String x:Key="Humidity">Humidity</sys:String>
+    <sys:String x:Key="Wind">Wind speed (km/h)</sys:String>
+    <sys:String x:Key="Max">Maximum:</sys:String>
+    <sys:String x:Key="Min">Minimum:</sys:String>
+    <sys:String x:Key="WindDir">Main wind direction:</sys:String>
 </ResourceDictionary>

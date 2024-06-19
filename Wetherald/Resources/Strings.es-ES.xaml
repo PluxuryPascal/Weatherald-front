@@ -120,4 +120,25 @@
     <sys:String x:Key="Warsaw">Varsovia</sys:String>
     <sys:String x:Key="Lisbon">Lisboa</sys:String>
 
+    <!-- Инф о погоде -->
+    <sys:String x:Key="N">N</sys:String>
+    <sys:String x:Key="S">S</sys:String>
+    <sys:String x:Key="E">E</sys:String>
+    <sys:String x:Key="W">O</sys:String>
+    <sys:String x:Key="NW">NO</sys:String>
+    <sys:String x:Key="NE">NE</sys:String>
+    <sys:String x:Key="SW">SO</sys:String>
+    <sys:String x:Key="SE">SE</sys:String>
+    <sys:String x:Key="NNW">NNO</sys:String>
+    <sys:String x:Key="NNE">NNE</sys:String>
+    <sys:String x:Key="SSW">SSO</sys:String>
+    <sys:String x:Key="SSE">SSE</sys:String>
+    <sys:String x:Key="Today">El tiempo para hoy:</sys:String>
+    <sys:String x:Key="Tomorrow">El tiempo para mañana:</sys:String>
+    <sys:String x:Key="Temp">Temperatura</sys:String>
+    <sys:String x:Key="Humidity">Humedad</sys:String>
+    <sys:String x:Key="Wind">Velocidad del viento (km/h)</sys:String>
+    <sys:String x:Key="Max">Máximo:</sys:String>
+    <sys:String x:Key="Min">Mínimo:</sys:String>
+    <sys:String x:Key="WindDir">Dirección principal del viento:</sys:String>
 </ResourceDictionary>

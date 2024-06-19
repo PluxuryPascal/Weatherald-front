@@ -118,4 +118,26 @@
     <sys:String x:Key="Budapest">布达佩斯</sys:String>
     <sys:String x:Key="Warsaw">华沙</sys:String>
     <sys:String x:Key="Lisbon">里斯本</sys:String>
+
+    <!-- Инф о погоде -->
+    <sys:String x:Key="N">北</sys:String>
+    <sys:String x:Key="S">南</sys:String>
+    <sys:String x:Key="E">西</sys:String>
+    <sys:String x:Key="W">东</sys:String>
+    <sys:String x:Key="NW">西北</sys:String>
+    <sys:String x:Key="NE">东北</sys:String>
+    <sys:String x:Key="SW">西南</sys:String>
+    <sys:String x:Key="SE">东南</sys:String>
+    <sys:String x:Key="NNW">西北北</sys:String>
+    <sys:String x:Key="NNE">东北北</sys:String>
+    <sys:String x:Key="SSW">西南南</sys:String>
+    <sys:String x:Key="SSE">东南南</sys:String>
+    <sys:String x:Key="Today">今日天气：</sys:String>
+    <sys:String x:Key="Tomorrow">明天天气：</sys:String>
+    <sys:String x:Key="Temp">温度</sys:String>
+    <sys:String x:Key="Humidity">湿度</sys:String>
+    <sys:String x:Key="Wind">风速（公里/小时）</sys:String>
+    <sys:String x:Key="Max">最大限度:</sys:String>
+    <sys:String x:Key="Min">最低限度：</sys:String>
+    <sys:String x:Key="WindDir">主风向：</sys:String>
 </ResourceDictionary>

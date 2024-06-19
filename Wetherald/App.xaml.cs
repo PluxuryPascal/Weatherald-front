@@ -10,6 +10,7 @@ using System.Net;
 using System.Xml.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Wetherald
 {
@@ -21,12 +22,306 @@ namespace Wetherald
         public string PageName { get; set; }
         public static Dictionary<string, double> trust = new Dictionary<string, double>();
         public static string[] trustChoise = new string[3];
+
         public static string CurrentLanguage { get; set; } = "ru-RU"; // Установить русский язык по умолчанию
+        public static double[] ProcessDataTodayTemperture(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<double>> dataSelector)
+        {
+            double[] sum = new double[8];
+            double[] weightSum = new double[8]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources      
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TodayForecast))
+                .ToList();
 
-        //public static int TrustFormula(int site1, string siteName1, int site2, string siteName2, int site3, string siteName3, int site4, string siteName4)
-        //{
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i] != -273)
+                    {
+                        sum[i] += data[i] * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
 
-        //}
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+
+        public static double[] ProcessDataTodayHumidity(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<double>> dataSelector)
+        {
+            double[] sum = new double[8];
+            double[] weightSum = new double[8]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TodayForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i] != -1)
+                    {
+                        sum[i] += data[i] * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
+
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+
+        public static double[] ProcessDataTomorrowHumidity(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<double>> dataSelector)
+        {
+            double[] sum = new double[8];
+            double[] weightSum = new double[8]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TomorrowForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i] != -1)
+                    {
+                        sum[i] += data[i] * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
+
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+
+        public static double[] ProcessDataTomorrowTemperture(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<double>> dataSelector)
+        {
+            double[] sum = new double[8];
+            double[] weightSum = new double[8]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TomorrowForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i] != -273)
+                    {
+                        sum[i] += data[i] * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
+
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+
+        public static double[] ProcessDataTodayWind(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<WindData>> dataSelector)
+        {
+            double[] sum = new double[8];
+            double[] weightSum = new double[8]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TodayForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Speed != -1)
+                    {
+                        sum[i] += data[i].Speed * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
+
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+        public static List<string> ProcessDataTodayWindString(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<WindData>> dataSelector)
+        {
+            List<string> sum = new List<string>();
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TodayForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Direction != "none")
+                    {
+                        sum.Add(data[i].Direction);
+                        
+                    }
+                }
+            }
+
+
+            return sum;
+        }
+        public static List<string> ProcessDataTommorowWindString(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<WindData>> dataSelector)
+        {
+            List<string> sum = new List<string>();
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TomorrowForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Direction != "none")
+                    {
+                        sum.Add(data[i].Direction);
+
+                    }
+                }
+            }
+
+
+            return sum;
+        }
+
+        public static double[] ProcessDataTomorrowWind(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<DayForecast, List<WindData>> dataSelector)
+        {
+            double[] sum = new double[8];
+            double[] weightSum = new double[8]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.TomorrowForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Speed != -1)
+                    {
+                        sum[i] += data[i].Speed * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
+
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+        public static double[] ProcessDataMonthTemperture(Dictionary<string, double> trust, List<WeatherSource> weatherSources, Func<MonthForecast, Dictionary<int, double>> dataSelector)
+        {
+            double[] sum = new double[31];
+            double[] weightSum = new double[31]; // To keep track of the sum of weights for each position
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                var data = weatherSources
+                .Where(source => source.Name.Equals(pair.Key))
+                .SelectMany(source => dataSelector(source.Forecast.MonthForecast))
+                .ToList();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (data[i].Value != -273)
+                    {
+                        sum[i] += data[i].Value * pair.Value;
+                        weightSum[i] += pair.Value;
+                    }
+                }
+            }
+
+            // Normalize the sum by the sum of weights to handle missing values
+            for (int i = 0; i < sum.Length; i++)
+            {
+                if (weightSum[i] != 0)
+                {
+                    sum[i] /= weightSum[i];
+                    sum[i] = Math.Round(sum[i], 2);
+                }
+            }
+
+            return sum;
+        }
+        public static double[] TrustDayTempFormula(Dictionary<string, double> trust)
+        {
+            double[] sum = new double[8];
+            foreach (KeyValuePair<string, double> pair in trust)
+            {
+                int i = 0;
+                var result = WeatherSources.Select(x => x)
+                                           .Where(source => source.Name.Equals(pair.Key))
+                                           .SelectMany(x => x.Forecast.TodayForecast.TemperatureData);
+                foreach(var item in result)
+                {                    
+                    sum[i++] += (double)item * pair.Value;                    
+                }
+            }
+            return sum;
+        }
 
         public static void ChangeLanguage(string culture)
         {
@@ -63,13 +358,22 @@ namespace Wetherald
         {
             using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
             {
-                client.BaseAddress = new Uri("https://pudge.grabitkorovany.org/weatherald/" + RequestLocation);
-                HttpResponseMessage response = client.GetAsync("").Result;
-                response.EnsureSuccessStatusCode();
-                string result = response.Content.ReadAsStringAsync().Result;
+                try
+                {
+                    client.BaseAddress = new Uri("https://pudge.grabitkorovany.org/weatherald/" + RequestLocation);
+                    HttpResponseMessage response = client.GetAsync("").Result;
+                    response.EnsureSuccessStatusCode();
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    // Десериализация JSON-строки в список объектов WeatherSource
+                    WeatherSources = JsonConvert.DeserializeObject<List<WeatherSource>>(result);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Произошла ошибка при обращении к серверу.\nПроверьте свое соединение с интернетом, а также отключите VPN\nПопытка возобновить подключение...");
+                    GetInfo();
+                }
 
-                // Десериализация JSON-строки в список объектов WeatherSource
-                WeatherSources = JsonConvert.DeserializeObject<List<WeatherSource>>(result);
+
             }
             //// Пример вывода данных в консоль (можно удалить или закомментировать)
             //foreach (var source in WeatherSources)

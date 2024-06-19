@@ -57,7 +57,7 @@
 
                     <Label  Name="lbl2"  Height="30" Width="200"  Cursor="Hand"
                     BorderBrush="Black" BorderThickness="1" 
-                           MouseDown="WebClick2_MouseDown" FontSize="16" Content="Accuweather"/>
+                           MouseDown="WebClick2_MouseDown" FontSize="16" Content="AccuWeather"/>
 
                     <Label  Name="lbl3" Height="30"  Width="200" Cursor="Hand"
                     BorderBrush="Black" BorderThickness="1" 

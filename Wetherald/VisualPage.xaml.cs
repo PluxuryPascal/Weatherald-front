@@ -66,7 +66,7 @@ namespace Wetherald
         public void DayWeatherGraph_Realisation()
         {
             var plt = DayWeatherGraph.Plot;
-            double[] dataY = { 3, 0, -4, 8, -11, 13, 9, -12 };
+            double[] dataY = App.ProcessDataTodayTemperture(App.trust, App.WeatherSources, source => source.TemperatureData);
             double max = dataY.Max();
             double min = dataY.Min();
             var barPlt = plt.Add.Bars(dataY);
@@ -177,7 +177,7 @@ namespace Wetherald
         public void MonthWeatherGraph_Realisation()
         {
             var plt = MonthWeatherGraph.Plot;
-            double[] dataY = { 12, 21, 9, 15, 19, 20, 22, 23, 25, 21, 19, 19, 19, 10, 7, 3, 2, 1, -5 ,-7, -13, -32, 5, 4, 8, 7, 11, 15, 16, 23 };
+            double[] dataY = App.ProcessDataMonthTemperture(App.trust, App.WeatherSources, source => source.MaxTemperatureData);
             double max = dataY.Max();
             double min = dataY.Min();
             DateTime[] dates = Generate.ConsecutiveDays(100);
@@ -250,40 +250,41 @@ namespace Wetherald
 
                 }
             }
+            DateTime today = DateTime.Today;
 
             Tick[] ticks =
             {
-                new(0, "1"),
-                new(1, "2"),
-                new(2, "3"),
-                new(3, "4"),
-                new(4, "5"),
-                new(5, "6"),
-                new(6, "7"),
-                new(7, "8"),
-                new(8, "9"),
-                new(9, "10"),
-                new(10, "11"),
-                new(11, "12"),
-                new(12, "13"),
-                new(13, "14"),
-                new(14, "15"),
-                new(15, "16"),
-                new(16, "17"),
-                new(17, "18"),
-                new(18, "19"),
-                new(19, "20"),
-                new(20, "21"),
-                new(21, "22"),
-                new(22, "23"),
-                new(23, "24"),
-                new(24, "25"),
-                new(25, "26"),
-                new(26, "27"),
-                new(27, "28"),
-                new(28, "29"),
-                new(29, "30"),
-                new(30, "31"),
+                new(0, (today.Day).ToString() + "." + (today.Month).ToString()),
+                new(1, (today.AddDays(1).Day).ToString()  + "." + (today.AddDays(1).Month).ToString()),
+                new(2, (today.AddDays(2).Day).ToString() + "." + (today.AddDays(2).Month).ToString()),
+                new(3, (today.AddDays(3).Day).ToString() + "." + (today.AddDays(3).Month).ToString()),
+                new(4, (today.AddDays(4).Day).ToString() + "." + (today.AddDays(4).Month).ToString()),
+                new(5, (today.AddDays(5).Day).ToString() + "." +(today.AddDays(5).Month).ToString() ),
+                new(6, (today.AddDays(6).Day).ToString() + "." +(today.AddDays(6).Month).ToString()),
+                new(7, (today.AddDays(7).Day).ToString() + "." +(today.AddDays(7).Month).ToString()),
+                new(8, (today.AddDays(8).Day).ToString() + "." +(today.AddDays(8).Month).ToString()),
+                new(9, (today.AddDays(9).Day).ToString() + "." +(today.AddDays(9).Month).ToString()),
+                new(10, (today.AddDays(10).Day).ToString() + "." +(today.AddDays(10).Month).ToString()),
+                new(11, (today.AddDays(11).Day).ToString() + "." +(today.AddDays(11).Month).ToString()),
+                new(12, (today.AddDays(12).Day).ToString() + "." +(today.AddDays(12).Month).ToString()),
+                new(13, (today.AddDays(13).Day).ToString() + "." +(today.AddDays(13).Month).ToString()),
+                new(14, (today.AddDays(14).Day).ToString() + "." +(today.AddDays(14).Month).ToString()),
+                new(15, (today.AddDays(15).Day).ToString() + "." +(today.AddDays(15).Month).ToString()),
+                new(16, (today.AddDays(16).Day).ToString() + "." +(today.AddDays(16).Month).ToString()),
+                new(17, (today.AddDays(17).Day).ToString() + "." +(today.AddDays(17).Month).ToString()),
+                new(18, (today.AddDays(18).Day).ToString() + "." +(today.AddDays(18).Month).ToString()),
+                new(19, (today.AddDays(19).Day).ToString() + "." +(today.AddDays(19).Month).ToString()),
+                new(20, (today.AddDays(20).Day).ToString() + "." + (today.AddDays(20).Month).ToString()),
+                new(21, (today.AddDays(21).Day).ToString() + "." + (today.AddDays(21).Month).ToString()),
+                new(22, (today.AddDays(22).Day).ToString() + "." + (today.AddDays(22).Month).ToString()),
+                new(23, (today.AddDays(23).Day).ToString() + "." + (today.AddDays(23).Month).ToString()),
+                new(24, (today.AddDays(24).Day).ToString() + "." +(today.AddDays(24).Month).ToString()),
+                new(25, (today.AddDays(25).Day).ToString() + "." +(today.AddDays(25).Month).ToString()),
+                new(26, (today.AddDays(26).Day).ToString() + "." +(today.AddDays(26).Month).ToString()),
+                new(27, (today.AddDays(27).Day).ToString() + "." +(today.AddDays(27).Month).ToString()),
+                new(28, (today.AddDays(28).Day).ToString() + "." +(today.AddDays(28).Month).ToString()),
+                new(29, (today.AddDays(29).Day).ToString() + "." +(today.AddDays(29).Month).ToString()),
+                new(30, (today.AddDays(30).Day).ToString() + "." +(today.AddDays(30).Month).ToString()),
             };
 
 

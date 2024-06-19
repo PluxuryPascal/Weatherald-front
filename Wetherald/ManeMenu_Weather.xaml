@@ -81,12 +81,91 @@
                 <StackPanel Orientation="Horizontal" >
                     <Button x:Name="MainButton" Template="{StaticResource TopMenuButtons}" Content="{DynamicResource MainPage}" Cursor="Hand" Background="Transparent" />
                     <Button x:Name="VisualButton" Click="VisualPage_Click" Template="{StaticResource TopMenuButtons}" Content="{DynamicResource Visualization}" Cursor="Hand" Background="Transparent"/>
-                    <Button x:Name="GraphButton" Click="GraphButton_Click" Template="{StaticResource TopMenuButtons}" Content="{DynamicResource Trust_rating}" Cursor="Hand" Background="Transparent"/>
-                </StackPanel>
+                 </StackPanel>
             </Border>
         </Grid>
 
+        <!-- Weather Information Section -->
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+            <StackPanel>
+                <Border  BorderThickness="2 0 0 1">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                            <GradientStop Color="Black" Offset="0.4"/>
+                            <GradientStop Color="Transparent" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <TextBlock FontSize="24" FontWeight="Bold" Foreground="Black" Margin="10,0,0,10" Text="{DynamicResource Today}"></TextBlock>
+                </Border>
+                
+                <StackPanel Orientation="Horizontal" Margin="0 -5 0 -5">
+                    <TextBlock Text="{DynamicResource Temp}" FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0,10"/>
+                    <TextBlock x:Name="MaxTodayTempratureInfo" Text="{DynamicResource Max}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MaxTodayTemprature" Background="Red" Width="100" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTodayTempratureInfo" Text="{DynamicResource Min}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTodayTemprature" Background="LightBlue" Width="100" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="0 -5 0 -5" >
+                    <TextBlock Text="{DynamicResource Humidity}" FontWeight="Bold" FontSize="20" Foreground="Black"  Margin="0,10"/>
+                    <TextBlock x:Name="MaxTodayHumidityInfo" Text="{DynamicResource Max}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MaxTodayHumidity" Background="Red" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTodayHumidityInfo" Text="{DynamicResource Min}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTodayHumidity" Background="LightBlue" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="0 -5 0 -5" >
+                    <TextBlock Text="{DynamicResource Wind}" FontWeight="Bold" FontSize="20" Foreground="Black"  Margin="0,10"/>
+                    <TextBlock x:Name="MaxTodayWindInfo" Text="{DynamicResource Max}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10,10,0"/>
+                        <TextBlock x:Name="MaxTodayWinf" Background="Red" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0, 10"/>
+                    <TextBlock x:Name="MinTodayWindInfo" Text="{DynamicResource Min}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="10,10,10,0"/>
+                        <TextBlock x:Name="MinTodayWind" Background="LightBlue" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0,10"/>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="0 -5 0 -5" >
+                    <TextBlock x:Name="MainDirectionTodayWindInfo" Text="{DynamicResource WindDir}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0 10"/>
+                    <TextBlock x:Name="MainDirectionTodayWind" Background="White" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="10 10"/>
 
+                </StackPanel>
+                
+                <Border  BorderThickness="2 0 0 1">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                            <GradientStop Color="Black" Offset="0.4"/>
+                            <GradientStop Color="Transparent" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <TextBlock FontSize="24" FontWeight="Bold" Foreground="Black" Margin="10,-5,0,10" Text="{DynamicResource Tomorrow}"></TextBlock>
+                </Border>
+
+                <StackPanel Orientation="Horizontal" Margin="0 -5 0 -5">
+                    <TextBlock Text="{DynamicResource Temp}" FontWeight="Bold" FontSize="20" Foreground="Black"  Margin="0,10"/>
+                    <TextBlock x:Name="MaxTommorowTempratureInfo" Text="{DynamicResource Max}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MaxTomorrowTemprature" Background="Red" Width="100" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTomorrowTempratureInfo" Text="{DynamicResource Min}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTomorrowTemprature" Background="LightBlue" Width="100" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 -5 0 -5">
+                    <TextBlock Text="{DynamicResource Humidity}" FontWeight="Bold" FontSize="20" Foreground="Black"  Margin="0,10"/>
+                    <TextBlock x:Name="MaxTomorrowHumidityInfo" Text="{DynamicResource Max}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MaxTomorrowHumidity" Background="Red" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTomorrowHumidityInfo" Text="{DynamicResource Min}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MinTomorrowHumidity" Background="LightBlue" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 -5 0 -5">
+                    <TextBlock Text="{DynamicResource Wind}" FontWeight="Bold" FontSize="20" Foreground="Black"  Margin="0,10"/>
+                    <TextBlock x:Name="MaxTomorrowWindInfo" Text="{DynamicResource Max}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="20,10"/>
+                    <TextBlock x:Name="MaxTomorrowWinf" Background="Red" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0,10"/>
+                    <TextBlock x:Name="MinTomorrowWindInfo" Text="{DynamicResource Min}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="10,10"/>
+                    <TextBlock x:Name="MinTomorrowWind" Background="LightBlue" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0,10"/>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="0 -10 0 -5" >
+                    <TextBlock x:Name="MainDirectionTomorrowWindInfo" Text="{DynamicResource WindDir}"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="0,10"/>
+                    <TextBlock x:Name="MainDirectionTomorrowWind" Background="White" Width="70" TextAlignment="Center" Text="1"  FontWeight="Bold" FontSize="20" Foreground="Black" Margin="10,10"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
         <Canvas Grid.ColumnSpan="2" Grid.Row="2" Margin="0,0,74,0">
             <Grid  Name="SlideMenu" Width="300" Height="Auto" Canvas.Bottom="0"  Canvas.Left="-200" MouseEnter="SlideMenu_MouseEnter" MouseLeave="SlideMenu_MouseLeave" >
 
@@ -105,39 +184,6 @@
                 </StackPanel>
             </Grid>
         </Canvas>
-        <StackPanel  Grid.ColumnSpan="2" Grid.Row="2" Margin="20">
-            <TextBlock FontSize="18" FontWeight="Bold" Text="Информация о погоде:"/>
-            <ListView Name="WeatherListView" ItemsSource="{x:Static local:App.WeatherSources}"  Margin="10" BorderBrush="LightGray" BorderThickness="1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Источник" Width="120" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Сегодня" Width="200">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Forecast.TodayForecast.TemperatureData[0]}" Margin="0,0,0,5"/>
-                                        <TextBlock Text="{Binding Forecast.TodayForecast.HumidityData[0]}" Margin="0,0,0,5"/>
-                                        <TextBlock Text="{Binding Forecast.TodayForecast.WindData[0].Direction}" Margin="0,0,0,5"/>
-                                        <TextBlock Text="{Binding Forecast.TodayForecast.WindData[0].Speed}" Margin="0,0,0,5"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Завтра" Width="200">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Forecast.TomorrowForecast.TemperatureData[0]}" Margin="0,0,0,5"/>
-                                        <TextBlock Text="{Binding Forecast.TomorrowForecast.HumidityData[0]}" Margin="0,0,0,5"/>
-                                        <TextBlock Text="{Binding Forecast.TomorrowForecast.WindData[0].Direction}" Margin="0,0,0,5"/>
-                                        <TextBlock Text="{Binding Forecast.TomorrowForecast.WindData[0].Speed}" Margin="0,0,0,5"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
+        
     </Grid>
 </Page>

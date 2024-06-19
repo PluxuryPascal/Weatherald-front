@@ -26,6 +26,7 @@ namespace Wetherald
         public TrustPage_Change()
         {
             InitializeComponent();
+            App.trust = new Dictionary<string, double>(3);
             Loaded += MainWindow_Loaded;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -101,7 +102,7 @@ namespace Wetherald
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
-
+            App.GetInfo();
             NavigationService.Navigate(new SettingsPage());
         }
 

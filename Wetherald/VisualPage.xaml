@@ -82,7 +82,6 @@
                 <StackPanel Orientation="Horizontal" >
                     <Button x:Name="MainButton" Click="MainButton_Click" Template="{StaticResource TopMenuButtons}" Content="{DynamicResource MainPage}" Cursor="Hand" Background="Transparent" />
                     <Button x:Name="VisualButton"  Template="{StaticResource TopMenuButtons}" Content="{DynamicResource Visualization}" Cursor="Hand" Background="Transparent"/>
-                    <Button x:Name="GraphButton" Click="GraphButton_Click" Template="{StaticResource TopMenuButtons}" Content="{DynamicResource Trust_rating}" Cursor="Hand" Background="Transparent"/>
                 </StackPanel>
             </Border>
         </Grid>
